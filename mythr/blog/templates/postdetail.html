@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div>
+<h1> {{ title }} - {{ author.username }}</h1>
+    <small> {{ date_posted }}</small>
+<p> {{ content }}</p>
+    {% if request.user == author %}
+    <div>
+        <a href="{% url 'blog-post-edit' id=post.id %}">Edit</a>
+        <a href="{% url 'blog-post-delete' id=post.id %}">Delete</a>
+    </div>
+    {% endif %}
+</div>
+
+<div>
+    <h4>
+        Comments({{ num_comments }})
+    </h4>
+    {% for comment in comments %}
+    <p>{{ comment.content }} - <small> {{ comment.author.username }} </small>
+    {% endfor %}
+</div>
+<div>
+    <a href="{% url 'blog-post-comment' id=post.id %}">Comment</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{%  extends "layout.html" %}
+{% block content %}
+    <div>
+        Do you really want to delete this post?
+        <form action="" method="POST">
+            {% csrf_token %}
+        <input type="submit" value="Yes">
+        <a href="{% url 'blog-post-detail' id=post.id %}">Cancel</a>
+        </form>
+    </div>
+{%  endblock %}

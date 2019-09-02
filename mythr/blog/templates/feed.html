@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>
+        Your Feed
+    </h1>
+    <div>
+        <h4>
+            Posts from people you follow
+        </h4>
+        {% for post in posts %}
+        <div>
+            <a href="/blog/post/{{ post.id }}"><h7>
+                <b>{{ post.title }}</b> - <em>{{ post.author }}</em>
+            </h7>
+            <small>
+                {{ post.content }}
+            </small>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

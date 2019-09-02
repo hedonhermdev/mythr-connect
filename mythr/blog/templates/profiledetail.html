@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block content %}
+<div>
+    <h2>{{ username }}</h2>
+    <ul>
+        <li>
+            Name: {{ name }}
+        </li>
+        <li>
+            Birthdate: {{ birthdate }}
+        </li>
+        <li>
+            Following: {{ num_following }}
+        </li>
+        <li>
+            Followers: {{ num_followers }}
+        </li>
+        <li>
+            About: {{ about }}
+        </li>
+        {% if request.user.profile in user.profile.followers.all %}
+            <li><a href="{% url 'blog-accounts-profile-unfollow' id=user.id %}">Unfollow</a> </li>
+        {% else %}
+            <li><a href="{% url 'blog-accounts-profile-follow' id=user.id %}">Follow</a></li>
+        {% endif %}
+    </ul>
+</div>
+<div>
+    <h2>
+        Posts:
+    </h2>
+    <ul>
+        {% for post in posts %}
+            <h4><a href="{% url 'blog-post-detail' id=post.id %}">{{ post.title }}</a></h4><small>{{ post.date_posted }}</small>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

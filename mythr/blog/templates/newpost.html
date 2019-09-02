@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>
+            New Post
+        </h1>
+        <small class="text-secondary">Posting as {{ request.user.username }}</small>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="form-row">
+                    <label>
+                    Title
+                    </label>
+                </div>
+                <div class="form-row">
+                    {{ form.title.errors }}
+                </div>
+                <div class="form-row">
+                {{  form.title }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label>
+                    Content
+                    </label>
+                </div>
+                <div class="form-row">
+                    {{ form.title.errors }}
+                </div>
+                <div class="form-row">
+                {{  form.content }}
+                </div>
+            </div>
+            <input type="submit" class="btn btn-default" value="Submit">
+        </form>
+
+    </div>
+</div>
+{% endblock content %}

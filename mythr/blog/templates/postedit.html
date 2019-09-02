@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="col-md-8 col-md-offset-2">
+        <h1>
+            Edit Post
+        </h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <div class="form-row">
+                    <label>
+                    Title
+                    </label>
+                </div>
+                <div class="form-row">
+                    {{ form.title.errors }}
+                </div>
+                <div class="form-row">
+                {{  form.title }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                    <label>
+                    Content
+                    </label>
+                </div>
+                <div class="form-row">
+                    {{ form.title.errors }}
+                </div>
+                <div class="form-row">
+                {{ form.content }}
+                </div>
+            </div>
+            <input type="submit" class="btn btn-default" value="Save">
+        </form>
+
+    </div>
+</div>
+{% endblock content %}
